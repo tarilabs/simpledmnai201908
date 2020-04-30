@@ -40,14 +40,14 @@
       <artifactId>kie-ci</artifactId>
     </dependency>
 
+<!-- **** POC ****  -->
+      <!-- PAY ATTENTION TO VERSION OF pmml-model, v1.4.9 goes with 1.4.11-->
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-dmn-jpmml</artifactId>
       <version>${kie-version}</version>
     </dependency> 
-<!-- **** POC ****  -->
-      <!-- PAY ATTENTION TO VERSION OF pmml-model, v1.4.9 goes with 1.4.11-->
-     <dependency>
+      <dependency>
         <groupId>org.jpmml</groupId>
         <artifactId>pmml-evaluator</artifactId>
         <version>1.4.9</version>
@@ -56,11 +56,12 @@
         <groupId>org.jpmml</groupId>
         <artifactId>pmml-evaluator-extension</artifactId>
         <version>1.4.9</version>
-      </dependency>
-    <!--<dependency>
+      </dependency> 
+   <!-- 
+    <dependency>
       <groupId>org.drools</groupId>
       <artifactId>kie-pmml</artifactId>
-    </dependency> -->
+    </dependency>  -->   
 <!-- **** POC ****  -->
 
 
