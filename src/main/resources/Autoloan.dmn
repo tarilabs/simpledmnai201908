@@ -1,0 +1,583 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<semantic:definitions xmlns:semantic="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="http://www.trisotech.com/definitions/_5b5ce97e-c01b-4aac-9484-e7fc21dbc357" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:openapi="https://openapis.org/omg/extension/1.0" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:drools="http://www.drools.org/kie/dmn/1.2" xmlns:tc="http://www.omg.org/spec/DMN/20160719/testcase" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rss="http://purl.org/rss/2.0/" xmlns:included1="audit.pmml" xmlns:trisodmn="http://www.trisotech.com/2016/triso/dmn" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:triso="http://www.trisotech.com/2015/triso/modeling" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_5b5ce97e-c01b-4aac-9484-e7fc21dbc357" name="PMML20190822" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="http://www.trisotech.com/definitions/_5b5ce97e-c01b-4aac-9484-e7fc21dbc357">
+  <semantic:extensionElements/>
+  <semantic:import id="_589DF51E-479C-424D-8096-7F7755789A9A" name="audit" namespace="audit" locationURI="audit.pmml" importType="http://www.dmg.org/PMML-4_1"/>
+  <semantic:inputData id="_781999d6-b176-4f7e-adf2-bb44a9a109cd" name="College degree?">
+    <semantic:extensionElements/>
+    <semantic:variable id="_4c7c4c73-3a8f-4a6b-9024-9b88e600383a" name="College degree?" typeRef="boolean"/>
+  </semantic:inputData>
+  <semantic:inputData id="_57fdb5b1-b201-426b-8472-bafc5031bec4" name="Age">
+    <semantic:extensionElements/>
+    <semantic:variable id="_698c874d-d70c-44e6-ad53-d5ff641fd0ab" name="Age" typeRef="number"/>
+  </semantic:inputData>
+  <semantic:decision id="_b519acf5-ca12-40e6-b436-11bc36cc2bce" name="AutoLoan result">
+    <semantic:extensionElements/>
+    <semantic:variable id="_da166754-4f57-4b77-b493-69d1e52b0c67" name="AutoLoan result" typeRef="Any"/>
+    <semantic:informationRequirement id="_4a9d59ad-ca53-4c84-9182-a70a6056e252">
+      <semantic:requiredInput href="#_57fdb5b1-b201-426b-8472-bafc5031bec4"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_0b91c72c-3186-428c-a3b7-01993f8db9cd">
+      <semantic:requiredInput href="#_be223afc-0668-45d7-8bfc-4f5dbaa9c841"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_8cb11766-fb72-4451-b284-2b28cb34aebb">
+      <semantic:requiredDecision href="#_28304111-337e-4129-9751-72887d9af271"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_bac6c010-0646-4890-a792-8d22628a7f81">
+      <semantic:requiredDecision href="#_a3f6b60d-66a7-45bb-bd10-e8f40ecff309"/>
+    </semantic:informationRequirement>
+    <semantic:decisionTable id="_69e75580-e652-4c2d-a389-199c8b74c3c0" typeRef="Any" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row" outputLabel="AutoLoan result">
+      <semantic:input id="_a6ea6059-6b8e-4cda-b850-8c9273b344fd">
+        <semantic:inputExpression id="_C2CE5E3C-0510-4B8E-B326-CA12AA2435EA" typeRef="number">
+          <semantic:text>Age</semantic:text>
+        </semantic:inputExpression>
+      </semantic:input>
+      <semantic:input id="_a276d9f9-3a0e-4851-a7f5-6787d7bc4f0e">
+        <semantic:inputExpression id="_2BADA59A-639C-45DA-BC3D-EC1764945A93" typeRef="boolean">
+          <semantic:text>Executive role?</semantic:text>
+        </semantic:inputExpression>
+      </semantic:input>
+      <semantic:input id="_cd8ebbfa-8761-476e-93df-5f2feff7bcf2">
+        <semantic:inputExpression id="_4D22EE05-0A47-4FED-ACDA-C592692274A0" typeRef="Any">
+          <semantic:text>LSR</semantic:text>
+        </semantic:inputExpression>
+      </semantic:input>
+      <semantic:input id="_7c87e737-c96f-4d70-95ac-3103a916243c">
+        <semantic:inputExpression id="_BE95DD90-577B-4B04-9CAD-907D2E182F4D" typeRef="boolean">
+          <semantic:text>Previously Audited?</semantic:text>
+        </semantic:inputExpression>
+      </semantic:input>
+      <semantic:output id="_ccbe4b27-c6aa-4086-b640-97cc97c62e73"/>
+      <semantic:rule id="_364aeced-2339-43cf-8699-a09529c865aa">
+        <semantic:inputEntry id="_118ec933-a48b-4a03-a1a0-1853a7a06cef">
+          <semantic:text>&lt;21</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_6b671ac6-ae90-46ee-b7af-d4e41345b5f9">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_b40c05ba-846f-4cb9-a6a5-76f6a2493e6f">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_e66b35ea-bfc0-4b51-990c-8067feb66d1e">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_5f8520ef-7d47-4cbb-b2bd-f3d04552450d">
+          <semantic:text>"Manual"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_915963a1-61fe-4828-82ef-2824e1746d7f">
+        <semantic:inputEntry id="_f3172b64-c429-4d26-b8a0-0fb089dd9e04">
+          <semantic:text>&gt;65</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_10324f42-a11c-4e70-a95b-0076160cde29">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_ccb3444f-1b48-4379-8140-fd0f5abd7c49">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_149d3f51-5aca-499f-9ec9-abd753e705c0">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_75a64e4e-c0e4-4955-ae5a-5a852c578f52">
+          <semantic:text>"Manual"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_a7378ed4-afaa-4375-8fd8-0daf7bfd14d8">
+        <semantic:inputEntry id="_3bbdc594-f2fc-43ec-8b4d-5e04ee214da7">
+          <semantic:text>[21..65]</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_8db9400c-9bf5-43ad-a755-925ca48bf8b5">
+          <semantic:text>false</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_6fdfff19-42e1-4530-b117-56a007121e16">
+          <semantic:text>&lt;3</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_3faa0311-d00f-463d-8bb2-c2c04b73f599">
+          <semantic:text>false</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_0f0af060-4496-492e-8049-b6c864001186">
+          <semantic:text>"AutoLoan"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_95d78e61-178c-4fb9-9da9-760776e43bf3">
+        <semantic:inputEntry id="_4796016a-67f1-432a-b43a-668b20f971fc">
+          <semantic:text>[21..65]</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_24284a61-f680-4d40-a475-96bcac491765">
+          <semantic:text>false</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_7b03d3b4-2f79-4af8-9a77-bd21cc53d603">
+          <semantic:text>&lt;3</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_922b0df9-6af2-432b-97c0-a5cb3e97c983">
+          <semantic:text>true</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_f15822f3-809e-48cc-89d3-7e3089a95c83">
+          <semantic:text>"Manual"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_6b16c464-ba1a-47cc-8168-440ccecca031">
+        <semantic:inputEntry id="_dc1a4880-1170-44f5-8ddb-0c841a293ffb">
+          <semantic:text>[21..65]</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_01fbce4a-8222-4697-80b3-9806e7baecaf">
+          <semantic:text>false</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_a74a7a3d-b348-4537-8789-b5e098da8900">
+          <semantic:text>&gt;=3</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_5d33e757-e506-474f-99c5-2da218720bac">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_7097ce8c-b814-4f81-8643-d1b3ad16f9a2">
+          <semantic:text>"Manual"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_172b0e2e-489f-4989-adb9-b0bdf5196c5e">
+        <semantic:inputEntry id="_130d232f-8ace-458e-bb1e-b14dd8979c2e">
+          <semantic:text>[21..65]</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_2c325a98-f091-4ff5-8db5-363447a20319">
+          <semantic:text>true</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_5bdc0390-2a32-4171-8946-d5732058300f">
+          <semantic:text>&lt;5</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_7a04afb8-cace-4bac-8c28-8d0121559bf2">
+          <semantic:text>false</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_a8868f0b-ede5-495c-80ec-5f67bdcaf559">
+          <semantic:text>"AutoLoan"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_34cfbec6-a30b-45b2-8dc8-be1ae37da50e">
+        <semantic:inputEntry id="_ec2308ec-3a98-495a-a9a1-91b55a3d5c5a">
+          <semantic:text>[21.. 65]</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_7c6cb5a3-5359-457b-b87b-652214f5e546">
+          <semantic:text>true</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_d7e9fb37-f4c5-47a6-8a2c-2ec72b8ae18e">
+          <semantic:text>&lt;5</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_66dc96b6-9617-47a5-8443-e3192b6fce38">
+          <semantic:text>true</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_6934baa4-5212-4313-b9e7-7a4054cebec8">
+          <semantic:text>"Manual"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_9dc4cd22-b5f0-4519-a51d-7b492b6db48e">
+        <semantic:inputEntry id="_3163aed2-64a3-4fa6-a04e-54ac27d494ce">
+          <semantic:text>[21..65]</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_cdea5b81-048f-481b-9ce9-d363e80b550f">
+          <semantic:text>true</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_98f52196-b589-4977-bed7-5b98f1f07bc4">
+          <semantic:text>&gt;=5</semantic:text>
+        </semantic:inputEntry>
+        <semantic:inputEntry id="_61db28b1-e962-4a49-a56d-cec469c9d00e">
+          <semantic:text>-</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_f35334a1-f890-44c5-b8ce-7382645e0d67">
+          <semantic:text>"Manual"</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+    </semantic:decisionTable>
+  </semantic:decision>
+  <semantic:decision id="_e2cdd1d6-5905-41dc-b846-ce05ad223db5" name="invoke ML">
+    <semantic:extensionElements/>
+    <semantic:variable id="_236e14ef-fc4d-4b64-b433-1720ae5334b4" name="invoke ML" typeRef="Any"/>
+    <semantic:informationRequirement id="_8559db38-4f5a-434e-9bd8-b163760e44e7">
+      <semantic:requiredInput href="#_57fdb5b1-b201-426b-8472-bafc5031bec4"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_2eec579d-edb2-4f6d-8b8d-f3e4682be83f">
+      <semantic:requiredInput href="#_cc838a58-a767-49ea-aeaa-7640daeaba74"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_09de915a-4c8a-4621-a70b-2ca8fe51ee8a">
+      <semantic:requiredInput href="#_3e31dc55-4c59-4a2a-bf17-d78df489e4c9"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_71e34fab-204f-45e8-a69e-865e402a659a">
+      <semantic:requiredInput href="#_781999d6-b176-4f7e-adf2-bb44a9a109cd"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_b605bdc8-d9a0-408b-bddd-c7fac6f35866">
+      <semantic:requiredInput href="#_be223afc-0668-45d7-8bfc-4f5dbaa9c841"/>
+    </semantic:informationRequirement>
+    <semantic:knowledgeRequirement id="_f9f5a0eb-ed79-4577-82bf-98ab663a1946">
+      <semantic:requiredKnowledge href="#_5541da18-0979-4be2-9cb9-36f6a8961a7b"/>
+    </semantic:knowledgeRequirement>
+    <semantic:invocation id="_e084a628-d549-438e-b7ce-4cb331eef83a" typeRef="Any">
+      <semantic:literalExpression id="literal__e084a628-d549-438e-b7ce-4cb331eef83a">
+        <semantic:text>blackbox ML</semantic:text>
+      </semantic:literalExpression>
+      <semantic:binding>
+        <semantic:parameter id="_bb4d024a-62cc-4c5d-8dcd-164bd2c7a47d" name="Age"/>
+        <semantic:literalExpression id="_fad5f97d-1781-47e1-b620-4ff2d625df59">
+          <semantic:text>Age</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_246e7036-1b95-4d56-9cd2-1c9663d1fc01" name="Employment"/>
+        <semantic:literalExpression id="_fc09ee50-b35f-4234-a477-b6bbbfc0f2a7">
+          <semantic:text>null</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_d94e9a2c-92b6-457a-bee6-f1b67dd9b3d8" name="Education"/>
+        <semantic:literalExpression id="_2962a64c-2fc7-4e6a-9ccf-c6b71367bb29">
+          <semantic:text>if College degree? then "College" else null</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_d0000c0d-94e6-4ad2-aa8d-51213cf23478" name="Marital"/>
+        <semantic:literalExpression id="_2cc51ebe-cf57-41e5-97ed-18654a32a620">
+          <semantic:text>if Married? then "Married" else null</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_54431197-b444-4703-a2d4-bcc588cf60a0" name="Occupation"/>
+        <semantic:literalExpression id="_ebdb6203-8eab-4823-a003-f673ae6cff10">
+          <semantic:text>if Executive role? then "Executive" else null</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_204f1f44-c3d8-436a-a6de-9e7c8c8072a2" name="Income"/>
+        <semantic:literalExpression id="_edef2cde-4eaa-4c37-89e7-672323c9cd65">
+          <semantic:text>Income</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_8f66ce6f-2d00-48c8-9683-0afaa9d70b79" name="Gender"/>
+        <semantic:literalExpression id="_ee6b87c8-32d1-4f4a-a339-5ad1007afcf4">
+          <semantic:text>null</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_4f6a927a-e002-4ece-a63a-b6e04c8babcc" name="Deductions"/>
+        <semantic:literalExpression id="_996a0fcc-8d57-4ef6-999f-7be5dc25ff16">
+          <semantic:text>null</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+      <semantic:binding>
+        <semantic:parameter id="_f69df5c5-8fda-40ba-a03a-1bc25884839d" name="Hours"/>
+        <semantic:literalExpression id="_8d24ce13-35ce-43f9-b3e1-7f1d058c92ab">
+          <semantic:text>null</semantic:text>
+        </semantic:literalExpression>
+      </semantic:binding>
+    </semantic:invocation>
+  </semantic:decision>
+  <semantic:decision id="_28304111-337e-4129-9751-72887d9af271" name="LSR">
+    <semantic:extensionElements/>
+    <semantic:variable id="_31d472d4-b5c6-4e56-8a45-65d049f646ae" name="LSR" typeRef="Any"/>
+    <semantic:informationRequirement id="_ec07e424-1621-40f5-9628-f42d9750830d">
+      <semantic:requiredInput href="#_82eee496-e62b-45ea-9ed0-8dfd997744a0"/>
+    </semantic:informationRequirement>
+    <semantic:informationRequirement id="_7020e92a-7afe-49ea-9b31-33e3da41b2b3">
+      <semantic:requiredInput href="#_3e31dc55-4c59-4a2a-bf17-d78df489e4c9"/>
+    </semantic:informationRequirement>
+    <semantic:literalExpression id="_06b649dd-5cfa-466e-a245-43d318a78bbb" typeRef="Any">
+      <semantic:text>Loan Amount / Income</semantic:text>
+    </semantic:literalExpression>
+  </semantic:decision>
+  <semantic:inputData id="_82eee496-e62b-45ea-9ed0-8dfd997744a0" name="Loan Amount">
+    <semantic:extensionElements/>
+    <semantic:variable id="_0b5f8e5a-6776-4c8f-832f-84c81e0d62b3" name="Loan Amount" typeRef="number"/>
+  </semantic:inputData>
+  <semantic:inputData id="_cc838a58-a767-49ea-aeaa-7640daeaba74" name="Married?">
+    <semantic:extensionElements/>
+    <semantic:variable id="_c78b6c88-a5c5-42ea-a567-3dced27c60e7" name="Married?" typeRef="boolean"/>
+  </semantic:inputData>
+  <semantic:inputData id="_be223afc-0668-45d7-8bfc-4f5dbaa9c841" name="Executive role?">
+    <semantic:extensionElements/>
+    <semantic:variable id="_8ce48561-abe2-4945-845d-18d539bcb87c" name="Executive role?" typeRef="boolean"/>
+  </semantic:inputData>
+  <semantic:businessKnowledgeModel id="_5541da18-0979-4be2-9cb9-36f6a8961a7b" name="blackbox ML">
+    <semantic:extensionElements/>
+    <semantic:variable id="_7b5dbc29-42c8-4554-b876-332a0c353f83" name="blackbox ML" typeRef="Any"/>
+    <semantic:encapsulatedLogic id="_8dbd71b5-ea13-4305-b32e-1e9bfb5d7503" typeRef="Any" kind="PMML">
+      <semantic:formalParameter id="_EF62B4DF-E771-4CF7-A753-6DA6D97D1C99" name="Age" typeRef="Any"/>
+      <semantic:formalParameter id="_77A12A32-25D9-4BE3-A530-F3B2385033FB" name="Deductions" typeRef="Any"/>
+      <semantic:formalParameter id="_5F89AA37-CCE7-4712-8750-733E38F89E34" name="Education" typeRef="Any"/>
+      <semantic:formalParameter id="_BED12B40-76B5-427D-9DBA-DACCC689A5F7" name="Employment" typeRef="Any"/>
+      <semantic:formalParameter id="_87461947-19E6-4EF8-973E-46D016D20CC3" name="Gender" typeRef="Any"/>
+      <semantic:formalParameter id="_02402FDF-E5FE-40FB-BEB8-A64F0B3F7EE3" name="Hours" typeRef="Any"/>
+      <semantic:formalParameter id="_EC26C1F0-5AE9-48AC-BC16-E046C53FF41E" name="Income" typeRef="Any"/>
+      <semantic:formalParameter id="_B8B4E491-6D4B-4523-A3F1-6DF5ABFBFFDA" name="Marital" typeRef="Any"/>
+      <semantic:formalParameter id="_2DC90199-65D8-4FBC-999C-C57D089342F2" name="Occupation" typeRef="Any"/>
+      <semantic:context id="_BC075B11-2811-4E03-B135-6565A1D0954E">
+        <semantic:contextEntry>
+          <semantic:variable id="_995D3414-95C9-46CD-BBDF-AAF480AA767F" name="document" typeRef="string"/>
+          <semantic:literalExpression id="_7955A9EE-8FCF-4E57-867D-2F0BF8368C7F">
+            <semantic:text>"audit"</semantic:text>
+          </semantic:literalExpression>
+        </semantic:contextEntry>
+        <semantic:contextEntry>
+          <semantic:variable id="_06718B8D-5EA7-48A5-A7F6-6C9AB2A6664D" name="model" typeRef="string"/>
+          <semantic:literalExpression id="_5A2F1C1F-6BA7-4BF6-9461-87C728AD0C27">
+            <semantic:text>"DecisionTree"</semantic:text>
+          </semantic:literalExpression>
+        </semantic:contextEntry>
+      </semantic:context>
+    </semantic:encapsulatedLogic>
+  </semantic:businessKnowledgeModel>
+  <semantic:inputData id="_3e31dc55-4c59-4a2a-bf17-d78df489e4c9" name="Income">
+    <semantic:extensionElements/>
+    <semantic:variable id="_a4934711-41d2-4c92-b1a1-93f0321ae9db" name="Income" typeRef="number"/>
+  </semantic:inputData>
+  <semantic:decision id="_a3f6b60d-66a7-45bb-bd10-e8f40ecff309" name="Previously Audited?">
+    <semantic:extensionElements/>
+    <semantic:variable id="_4adda2c5-25c9-42b4-a2d4-7ec810fa8773" name="Previously Audited?" typeRef="boolean"/>
+    <semantic:informationRequirement id="_4b19726a-30e0-4c2a-887b-d6b9001463dd">
+      <semantic:requiredDecision href="#_e2cdd1d6-5905-41dc-b846-ce05ad223db5"/>
+    </semantic:informationRequirement>
+    <semantic:decisionTable id="_ee685386-d24b-4175-b942-21f76af664a4" typeRef="boolean" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row" outputLabel="Previously Audited?">
+      <semantic:input id="_6ec57132-7612-49e3-8023-e7e5cd5db47f">
+        <semantic:inputExpression id="_66BD02CB-6ADB-4FAA-B7A5-F993DAB5EC2B" typeRef="Any">
+          <semantic:text>invoke ML</semantic:text>
+        </semantic:inputExpression>
+      </semantic:input>
+      <semantic:output id="_7fe4f2df-216f-4d9e-a9ea-b12ff7dedd1f"/>
+      <semantic:rule id="_6324bbc1-b604-4dfd-9acc-3cef4c54bce4">
+        <semantic:inputEntry id="_974eb085-c111-4afc-9ade-c2c5f11d3eaa">
+          <semantic:text>"0"</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_e31ad030-82a7-4da4-a0cb-ad5599107eeb">
+          <semantic:text>false</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+      <semantic:rule id="_7973689d-4649-490d-a252-1f8afdb22295">
+        <semantic:inputEntry id="_1e4351b8-6ee7-496b-8680-404049f7250e">
+          <semantic:text>"1"</semantic:text>
+        </semantic:inputEntry>
+        <semantic:outputEntry id="_c17b186a-9127-43ae-8f39-79964c642f6d">
+          <semantic:text>true</semantic:text>
+        </semantic:outputEntry>
+      </semantic:rule>
+    </semantic:decisionTable>
+  </semantic:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <drools:ComponentsWidthsExtension>
+          <drools:ComponentWidths dmnElementRef="_69e75580-e652-4c2d-a389-199c8b74c3c0">
+            <drools:width>50.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>100.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_e084a628-d549-438e-b7ce-4cb331eef83a">
+            <drools:width>50.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="literal__e084a628-d549-438e-b7ce-4cb331eef83a"/>
+          <drools:ComponentWidths dmnElementRef="_fad5f97d-1781-47e1-b620-4ff2d625df59">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_fc09ee50-b35f-4234-a477-b6bbbfc0f2a7">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_2962a64c-2fc7-4e6a-9ccf-c6b71367bb29">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_2cc51ebe-cf57-41e5-97ed-18654a32a620">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_ebdb6203-8eab-4823-a003-f673ae6cff10">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_edef2cde-4eaa-4c37-89e7-672323c9cd65">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_ee6b87c8-32d1-4f4a-a339-5ad1007afcf4">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_996a0fcc-8d57-4ef6-999f-7be5dc25ff16">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_8d24ce13-35ce-43f9-b3e1-7f1d058c92ab">
+            <drools:width>538.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_06b649dd-5cfa-466e-a245-43d318a78bbb">
+            <drools:width>238.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_BC075B11-2811-4E03-B135-6565A1D0954E">
+            <drools:width>50.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>200.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_7955A9EE-8FCF-4E57-867D-2F0BF8368C7F">
+            <drools:width>200.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_5A2F1C1F-6BA7-4BF6-9461-87C728AD0C27">
+            <drools:width>200.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_8dbd71b5-ea13-4305-b32e-1e9bfb5d7503">
+            <drools:width>50.0</drools:width>
+            <drools:width>370.0</drools:width>
+          </drools:ComponentWidths>
+          <drools:ComponentWidths dmnElementRef="_ee685386-d24b-4175-b942-21f76af664a4">
+            <drools:width>50.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>100.0</drools:width>
+            <drools:width>100.0</drools:width>
+          </drools:ComponentWidths>
+        </drools:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-_781999d6-b176-4f7e-adf2-bb44a9a109cd" dmnElementRef="_781999d6-b176-4f7e-adf2-bb44a9a109cd" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="400" y="425" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_57fdb5b1-b201-426b-8472-bafc5031bec4" dmnElementRef="_57fdb5b1-b201-426b-8472-bafc5031bec4" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="50" y="425" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_b519acf5-ca12-40e6-b436-11bc36cc2bce" dmnElementRef="_b519acf5-ca12-40e6-b436-11bc36cc2bce" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="487" y="50" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_e2cdd1d6-5905-41dc-b846-ce05ad223db5" dmnElementRef="_e2cdd1d6-5905-41dc-b846-ce05ad223db5" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="575" y="300" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_28304111-337e-4129-9751-72887d9af271" dmnElementRef="_28304111-337e-4129-9751-72887d9af271" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="400" y="175" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_82eee496-e62b-45ea-9ed0-8dfd997744a0" dmnElementRef="_82eee496-e62b-45ea-9ed0-8dfd997744a0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="400" y="300" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_cc838a58-a767-49ea-aeaa-7640daeaba74" dmnElementRef="_cc838a58-a767-49ea-aeaa-7640daeaba74" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="575" y="425" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_be223afc-0668-45d7-8bfc-4f5dbaa9c841" dmnElementRef="_be223afc-0668-45d7-8bfc-4f5dbaa9c841" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="925" y="425" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_5541da18-0979-4be2-9cb9-36f6a8961a7b" dmnElementRef="_5541da18-0979-4be2-9cb9-36f6a8961a7b" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="750" y="425" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_3e31dc55-4c59-4a2a-bf17-d78df489e4c9" dmnElementRef="_3e31dc55-4c59-4a2a-bf17-d78df489e4c9" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="225" y="425" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-_a3f6b60d-66a7-45bb-bd10-e8f40ecff309" dmnElementRef="_a3f6b60d-66a7-45bb-bd10-e8f40ecff309" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="575" y="175" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-_4a9d59ad-ca53-4c84-9182-a70a6056e252" dmnElementRef="_4a9d59ad-ca53-4c84-9182-a70a6056e252">
+        <di:waypoint x="100" y="450"/>
+        <di:waypoint x="537" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_0b91c72c-3186-428c-a3b7-01993f8db9cd" dmnElementRef="_0b91c72c-3186-428c-a3b7-01993f8db9cd">
+        <di:waypoint x="975" y="450"/>
+        <di:waypoint x="537" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_8cb11766-fb72-4451-b284-2b28cb34aebb" dmnElementRef="_8cb11766-fb72-4451-b284-2b28cb34aebb">
+        <di:waypoint x="450" y="200"/>
+        <di:waypoint x="537" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_bac6c010-0646-4890-a792-8d22628a7f81" dmnElementRef="_bac6c010-0646-4890-a792-8d22628a7f81">
+        <di:waypoint x="625" y="200"/>
+        <di:waypoint x="537" y="75"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_8559db38-4f5a-434e-9bd8-b163760e44e7" dmnElementRef="_8559db38-4f5a-434e-9bd8-b163760e44e7">
+        <di:waypoint x="100" y="450"/>
+        <di:waypoint x="625" y="325"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_2eec579d-edb2-4f6d-8b8d-f3e4682be83f" dmnElementRef="_2eec579d-edb2-4f6d-8b8d-f3e4682be83f">
+        <di:waypoint x="625" y="450"/>
+        <di:waypoint x="625" y="325"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_09de915a-4c8a-4621-a70b-2ca8fe51ee8a" dmnElementRef="_09de915a-4c8a-4621-a70b-2ca8fe51ee8a">
+        <di:waypoint x="275" y="450"/>
+        <di:waypoint x="625" y="325"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_71e34fab-204f-45e8-a69e-865e402a659a" dmnElementRef="_71e34fab-204f-45e8-a69e-865e402a659a">
+        <di:waypoint x="450" y="450"/>
+        <di:waypoint x="625" y="325"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_b605bdc8-d9a0-408b-bddd-c7fac6f35866" dmnElementRef="_b605bdc8-d9a0-408b-bddd-c7fac6f35866">
+        <di:waypoint x="975" y="450"/>
+        <di:waypoint x="625" y="325"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_f9f5a0eb-ed79-4577-82bf-98ab663a1946" dmnElementRef="_f9f5a0eb-ed79-4577-82bf-98ab663a1946">
+        <di:waypoint x="800" y="450"/>
+        <di:waypoint x="625" y="325"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_ec07e424-1621-40f5-9628-f42d9750830d" dmnElementRef="_ec07e424-1621-40f5-9628-f42d9750830d">
+        <di:waypoint x="450" y="325"/>
+        <di:waypoint x="450" y="200"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_7020e92a-7afe-49ea-9b31-33e3da41b2b3" dmnElementRef="_7020e92a-7afe-49ea-9b31-33e3da41b2b3">
+        <di:waypoint x="275" y="450"/>
+        <di:waypoint x="450" y="200"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-_4b19726a-30e0-4c2a-887b-d6b9001463dd" dmnElementRef="_4b19726a-30e0-4c2a-887b-d6b9001463dd">
+        <di:waypoint x="625" y="325"/>
+        <di:waypoint x="625" y="200"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</semantic:definitions>
